@@ -1,0 +1,11 @@
+long long lt(long long a,long long b){
+	if(b==0){
+		return 1;
+	}
+	long long x=lt(a,b/2);
+	if(b%2!=0){
+		return x*x*a;
+	}else{
+		return x*x;
+	}
+}
