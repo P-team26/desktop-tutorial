@@ -1,0 +1,51 @@
+//lomuto độ phức tạp về thời gian: O(N 2 ) 
+int lomuto(int a[],int low,int high){
+	int i=low-1;
+	int pivot=a[high];
+	for(int j=low;j<high;j++){
+		if(a[j]<pivot){
+			i++;
+			int tg=a[i];
+			a[i]=a[j];
+			a[j]=tg;
+		}
+	}
+	int tg=a[i+1];
+	a[i+1]=a[high];
+	a[high]=tg;
+	return i+1;
+}
+void quicksort(int a[],int low,int high){
+	if(low<high){
+		int i=lomuto(a,low,high);
+		quicksort(a,low,i-1);
+		quicksort(a,i+1,high);
+	}
+}
+//hoare độ phức tạp về thời gian: O(N) 
+int hoare(int a[],int low ,int high){
+	int pivot=a[low];
+	int i=low-1;
+	int j=high+1;
+	while(true){
+		do{
+			i++;
+		}while(a[i]<pivot);
+		do{
+			j--;
+		}while(a[j]>pivot);
+		if(i>=j){
+			return j;
+		}
+		int tg=a[i];
+		a[i]=a[j];
+		a[j]=tg;
+	}
+}
+void quicksort(int a[],int low,int high){
+	if(low<high){
+		int i=hoare(a,low,high);
+		quicksort(a,low,i);
+		quicksort(a,i+1,high);
+	}
+}
