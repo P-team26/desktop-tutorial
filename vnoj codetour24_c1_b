@@ -1,0 +1,17 @@
+#include<iostream>
+using namespace std;
+int met(int a,int b){
+    int solan;
+    if(a%b==0){
+        solan=a/b;
+	}else{
+	    solan=(a/b)+1;
+	}
+	return ((1+solan)*solan)/2;
+}
+int main(){
+	int a;
+	int b;
+	cin>>a>>b;
+	cout<<met(a,b);
+}
