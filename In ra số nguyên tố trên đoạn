@@ -1,0 +1,37 @@
+// sàng số nguyên tố
+#include<iostream>
+using namespace std;
+void sang(int a[]){
+	for(int i=0;i<=100000;i++){
+		a[i]=1;
+	}
+	a[0]=0;a[1]=0;
+	for(int i=2;i<=1000;i++){
+		if(a[i]==1){
+			for(int j=i*i;j<=100001;j+=i){
+				a[j]=0;
+			}
+		}
+	}
+}
+int main(){
+	int a[100001];
+	int b;
+	int c;
+	cin>>b>>c;
+	sang(a);
+	for(int i=b;i<=c;i++){
+		if(a[i]){
+			cout<<i<<" ";
+		}
+	}
+}
+// cách thường dùng hàm kiểm tra snt
+int snt(int n){
+   for(int i=2;i<=sqrt(n);i++){
+      if(n%2==0){
+         return 0;
+          }
+     }
+  return 1;
+}
