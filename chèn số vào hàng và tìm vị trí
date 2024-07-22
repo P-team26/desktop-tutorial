@@ -1,0 +1,29 @@
+#include<iostream>
+#include<vector>
+#include<math.h>
+using namespace std;
+int main(){
+	vector<int> a;
+	int b,c;
+	cin>>b>>c;
+	for(int i=1;i<=b;i++){
+		int j;
+		cin>>j;
+		a.push_back(j);
+	}
+	while(c--){
+		int k;cin>>k;
+		a.push_back(k);
+		b++;
+		int i=b-1;
+		int last=a[i];
+		int j=i;
+		while(j>0&&a[j-1]>last){
+				a[j]=a[j-1];
+				j--;
+		}
+		a[j]=last;
+		cout<<j+1<<endl;
+	}
+	return 0;
+}
