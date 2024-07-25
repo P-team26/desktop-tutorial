@@ -27,3 +27,26 @@ void heapsort(int a[],int n){
 		heapify(a,i,0);
 	}
 }
+//// tối ưu hơn
+void pushup(int a[],int max){
+	int par=(max-1)/2;
+	for(int i=par;i>=0;i--){
+		int tmp=2*i+1;
+		if(2*i+2<=max&&a[tmp]<a[2*i+2]){
+			tmp++;
+		}
+		if(a[tmp]>a[i]){
+			int tg=a[tmp];
+			a[tmp]=a[i];
+			a[i]=tg;
+        }  
+	}
+}
+void heapsort(int a[],int n){
+	for(int i=n-1;i>0;i--){ 
+		pushup(a,i);   
+		int tg=a[0];
+		a[0]=a[i];
+		a[i]=tg;
+	}
+}
