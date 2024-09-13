@@ -1,0 +1,46 @@
+public class Math{
+    public static double PI=3.14;
+    public static int abs(int x){
+        if(x<0){
+            x=-x;
+        }
+        return x;
+    }
+    public static int add(int x,int y){
+        return x+y;
+    }
+    public static int subtract(int x,int y){
+        return x-y;
+    }
+    public static int min(int a,int b){
+        if(a>b){
+            return b;
+        }
+        return a;
+    }
+    public static int max(int a,int b){
+        if(a>b){
+            return a;
+        }
+        return b;
+    }
+    public static int pow(int a,int b){
+        int pow=a;
+        for(int i=2;i<=b;i++){
+            pow*=a;
+        }
+        return pow;
+    }
+}
+//tess
+class Entry {
+	public static void main(String[] args) {
+		System.out.println(Math.PI);
+		System.out.println(Math.abs(-2));
+		System.out.println(Math.add(2, 3));
+		System.out.println(Math.subtract(2, 3));
+		System.out.println(Math.min(2, 3));
+		System.out.println(Math.max(2, 3));
+		System.out.println(Math.pow(2, 3));
+	}
+}
