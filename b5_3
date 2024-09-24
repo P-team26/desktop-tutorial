@@ -1,6 +1,6 @@
 interface IShape{
-    public getArena();
-    public getPerimete();
+    public double getArea();
+    public double getPerimete();
 }
 class Rectangle implements IShape{
     private double length;
@@ -10,7 +10,7 @@ class Rectangle implements IShape{
         this.width=width;
     }
     @Override
-    public double getArena(){
+    public double getArea(){
         return length*width;
     }
     @Override
